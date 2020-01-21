@@ -1,0 +1,11 @@
+/* Component Stylings */
+/* PRIMARY FONT: VERDANA (regular and bold) */
+
+:root {
+    --primary-color: #283B5A;
+    --secondary-color: #638DB8;
+    --tertiary-color: #5FA3BC;
+    --quatenary-color: #5BBA99;
+    --quinary-color: #F4F4F4;
+}
+
