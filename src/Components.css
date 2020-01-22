@@ -1,5 +1,5 @@
 /* Component Stylings */
-/* PRIMARY FONT: VERDANA (regular and bold) */
+/* Primary Colors */
 
 :root {
     --primary-color: #283B5A;
@@ -7,5 +7,205 @@
     --tertiary-color: #5FA3BC;
     --quatenary-color: #5BBA99;
     --quinary-color: #F4F4F4;
+} 
+
+/* Primary Text Stylings */
+
+.biggest_text {
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 139.03%;
+    /* or 56px */
+    letter-spacing: -0.03em;
+    color: var(--quinary-color);
+}
+.medium_text {
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: -0.025em;
+    color: var(--quinary-color);
+}
+.regular_text {
+    font-family: Verdana;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 142.03%;
+    /* or 23px */
+    letter-spacing: -0.025em;
+    color: var(--quinary-color);
 }
 
+/* General Alignment */
+
+/* Completely Ceneterd (top-bottom, left-right) */
+/* Parent element must have 'position: relative' */
+
+.fullCentered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Button Component */
+
+.border-button {
+
+    --button-border: 2px solid var(--quinary-color);
+    --button-background: transparent;
+    --button-text-color: var(--quinary-color);
+    --button-text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border-radius: 9px;
+    border: var(--button-border);
+    background: var(--button-background);
+    cursor: pointer;
+}
+.border-button span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.025em;
+    color: var(--button-text-color);
+    text-shadow: var(--button-text-shadow);
+}
+.border-button:hover {
+    --button-border: none;
+    --button-background: var(--quinary-color);
+    --button-text-color: var(--primary-color);
+}
+
+/* Contact Button */
+
+.contact-button {
+
+    --button-border: 2px solid var(--quinary-color);
+    --button-background: transparent;
+    --button-transform: none;
+
+    display: flex;
+    flex-direction: column;
+    width: 175px;
+    height: 175px;
+
+    background: var(--button-background);
+    border-radius: 9px;
+    border: var(--button-border);
+
+    transform: var(--button-transform);
+    transition: 0.2s all linear;
+    cursor: pointer;
+}
+.contact-button div {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+.contact-button div svg {
+    display: block;
+}
+.contact-button div span {
+    display: block;
+    width: max-content;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.025em;
+    color: var(--quinary-color);
+}
+.contact-button:hover {
+    --button-border: none;
+    --button-background: var(--quatenary-color);
+    --button-transform: translateY(-10px);
+}
+
+/* Header Navigation */
+
+.Main_Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: max-content;
+}
+
+/* Desktop Header */
+
+.DesktopHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.DesktopHeader div {
+    display: block;
+    padding: 12px 25px 12px 25px;
+}
+.DesktopHeader div div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+}
+.DesktopHeader div svg {
+    display: block;
+    position: relative;
+    top: 20px;
+    left: 25px;
+}
+.DesktopHeader div div div {
+
+    --underline-scale: scale(0);
+
+    display: block;
+    width: max-content;
+    height:20px;
+    cursor: pointer;
+}
+.DesktopHeader div div div span {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14.5px;
+    line-height: 139.03%;
+    /* or 20px */
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: var(--quinary-color);
+    transition: 0.2s all linear;
+}
+.DesktopHeader div div div span + span {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid var(--quinary-color);
+    transition: 0.2s all linear;
+    transform: var(--underline-scale);
+}
+.DesktopHeader div div div:hover {
+    --underline-scale: scale(1);
+}
