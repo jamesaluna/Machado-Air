@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import {
   BorderButton,
   ContactButton,
-  Header
+  Header,
+  MainPage
 } from './Components';
 import './App.css';
 
@@ -24,10 +25,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div style={componentDisplay}>
-        <BorderButton name='Hello'/>
-        <ContactButton text='Button' iconName='phone'/>
-      </div>
+      <MainPage type='commercial' image="url('Backgrounds/PhYq704ffdA.jpg')" title='Commercial and Industrial HVAC Cleaning and Restoration'/>  
     </div>
   );
 }
