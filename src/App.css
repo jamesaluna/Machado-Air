@@ -1,1 +1,5 @@
-
+.ComponentDisplay {
+    display: grid;
+    grid-template-areas: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
