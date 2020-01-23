@@ -57,7 +57,7 @@
     --button-border: 2px solid var(--quinary-color);
     --button-background: transparent;
     --button-text-color: var(--quinary-color);
-    --button-text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    --button-text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.75);
 
     display: block;
     position: relative;
@@ -67,9 +67,11 @@
     border: var(--button-border);
     background: var(--button-background);
     cursor: pointer;
+    transition: 0.2s all linear;
 }
 .border-button span {
     display: block;
+    width: max-content;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -77,7 +79,7 @@
     font-family: Verdana;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     text-align: center;
     letter-spacing: -0.025em;
@@ -88,6 +90,7 @@
     --button-border: none;
     --button-background: var(--quinary-color);
     --button-text-color: var(--primary-color);
+    --button-text-shadow: none;
 }
 
 /* Contact Button */
@@ -150,6 +153,9 @@
     display: block;
     width: 100vw;
     height: max-content;
+    z-index: 1000;
+    background: #F4F4F4;
+    box-shadow: 0px 4px 20px rgba(66, 66, 66, 0.5);
 }
 
 /* Desktop Header */
@@ -178,6 +184,7 @@
 .DesktopHeader div div div {
 
     --underline-scale: scale(0);
+    --text-transform: translateY(0px);
 
     display: block;
     width: max-content;
@@ -185,15 +192,18 @@
     cursor: pointer;
 }
 .DesktopHeader div div div span {
+    display: block;
+    width: max-content;
     font-family: Verdana;
     font-style: normal;
     font-weight: normal;
-    font-size: 14.5px;
+    font-size: 14px;
     line-height: 139.03%;
     /* or 20px */
     text-align: center;
     letter-spacing: -0.03em;
-    color: var(--quinary-color);
+    color: #404040;
+    transform: var(--text-transform);
     transition: 0.2s all linear;
 }
 .DesktopHeader div div div span + span {
@@ -202,10 +212,64 @@
     top: -8px;
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid var(--quinary-color);
+    border-bottom: 1px solid #404040;
     transition: 0.2s all linear;
     transform: var(--underline-scale);
 }
 .DesktopHeader div div div:hover {
     --underline-scale: scale(1);
+    --text-transform: translateY(-2px);
+}
+
+/* Landing Page Component */
+
+.Landing-Page {
+    display: block;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Landing Page Attribute Selectors for Main Pages */
+
+.Landing-Page[page_type='commercial'] {
+    background: url('Backgrounds/PhYq704ffdA.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Landing-Page::after {
+    display: inline-block;
+    content: "";
+    background: url('Vectors/landing_bottom_vector.svg');
+    background-size: cover;
+    position: absolute;
+    width: 100vw;
+    height: 300px;
+    bottom: 0;
+}
+.landingPageContent {
+    display: flex;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-55%);
+    flex-direction: column;
+    justify-content: space-between;
+    width: 710px;
+    height: 400px;
+}
+.landingPageContent h1 {
+    display: block;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 139.03%;
+    /* or 56px */
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 5px rgba(41, 41, 41, 0.75);
 }

@@ -8,6 +8,7 @@ import { ReactComponent as Logo } from './logo.svg';
 
 import { ReactComponent as PhoneIcon } from './Vectors/phone.svg';
 
+
 /* Components */
 
  // Buttons
@@ -73,4 +74,31 @@ class Header extends React.Component {
         )
     }
 }
-export {BorderButton, ContactButton, Header};
+
+// Landing Page Component (For main pages)
+
+function MainPage(props) {
+    const buttonWrapper = {
+        display: 'flex',
+        width: '400px',
+        height: 'auto',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+    }
+    const page_type = props.type;
+    const title = props.title;
+    return (
+        <div className='Landing-Page' page_type={props.type}>
+            <div className='landingPageContent'>
+                <h1>{title}</h1>
+                <div style={buttonWrapper}>
+                    <BorderButton name='Learn More' />
+                    <BorderButton name='Contact' />
+                </div>
+            </div>
+        </div>
+    );
+}
+export {BorderButton, ContactButton, Header, MainPage};
