@@ -172,7 +172,7 @@
 }
 .DesktopHeader .DesktopHeaderLogo, .DesktopHeader .DesktopHeaderLinks {
     display: block;
-    padding: 12px 25px 12px 25px;
+    padding: 12px 0px 12px 0px;
 }
 
 .DesktopHeader div div {
@@ -181,7 +181,7 @@
     justify-content: space-between;
     align-items: center;
     float: right;
-    width: 500px;
+    width: 550px;
 }
 .DesktopHeader div svg {
     display: block;
@@ -204,12 +204,12 @@
     font-family: Verdana;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 139.03%;
     /* or 20px */
     text-align: center;
     letter-spacing: -0.03em;
-    color: var(--quinary-color);
+    color: #FFF;
     transform: var(--text-transform);
     transition: 0.2s all linear;
 }
