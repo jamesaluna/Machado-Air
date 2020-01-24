@@ -149,7 +149,8 @@
 .Main_Header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
     width: 100vw;
     height: max-content;
@@ -163,23 +164,29 @@
 .DesktopHeader {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    width: 90%;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
 }
-.DesktopHeader div {
+.DesktopHeader .DesktopHeaderLogo, .DesktopHeader .DesktopHeaderLinks {
     display: block;
     padding: 12px 25px 12px 25px;
 }
+
 .DesktopHeader div div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     float: right;
+    width: 500px;
 }
 .DesktopHeader div svg {
     display: block;
     position: relative;
-    top: 20px;
-    left: 25px;
+    left: 50px;
 }
 .DesktopHeader div div div {
 
@@ -253,7 +260,7 @@
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translateX(-50%) translateY(-55%);
+    transform: translateX(-50%) translateY(-55%) scale(0.95);
     flex-direction: column;
     justify-content: space-between;
     width: 710px;
@@ -272,4 +279,109 @@
     color: #FFFFFF;
 
     text-shadow: 0px 4px 5px rgba(41, 41, 41, 0.75);
+}
+
+/* Border Description Component */
+
+.borderDescription {
+    display: block;
+    width: 500px;
+    height: auto;
+
+    --text-align: left;
+}
+.borderDescription[direction='right'] {
+    --text-align: right;
+    padding-right: 0px;
+}
+.borderDescription[direction='right'] h1 {
+    padding-right: 75px;
+    padding-left: 0px;
+    transform: translateX(-25px);
+}
+.borderDescription[direction='right']::before {
+    right: 100px;
+}
+.borderDescription h1 {
+    display: block;
+    width: 95%;
+    height: max-content;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    text-align: var(--text-align);
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: -0.025em;
+    color: #575757;
+}
+.borderDescription::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+.borderDescription p {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    text-align: var(--text-align);
+    font-size: 15px;
+    line-height: 142.03%;
+    /* or 20px */
+    letter-spacing: -0.025em;
+    color: #575757;
+}
+
+/* Large Image Component */
+
+.largeImage {
+    display: block;
+    width: 600px;
+    height: 350px;
+}
+
+/* Image and Description Flexbox (Mainly for Landing Pages) */
+
+.ImageDescription {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 95vw;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ImageDescription div[position='left'] {
+    display: block;
+    width: 50%;
+    position: relative;
+}
+.ImageDescription div[position='right'] {
+    display: block;
+    width: 50%;
+    position: relative;
+}
+.ImageDescription div[position='left'] div {
+    left: 0;
+}
+.ImageDescription div[position='right'] div {
+    right: 0;
+}
+.ImageDescriptionContent {
+    display: block;
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 100px;
+    padding-right: 100px;
 }
