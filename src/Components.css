@@ -11,31 +11,36 @@
 
 /* Primary Text Stylings */
 
-.biggest_text {
+.header_text {
     font-family: Verdana;
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 139.03%;
-    /* or 56px */
-    letter-spacing: -0.03em;
-    color: var(--quinary-color);
-}
-.medium_text {
-    font-family: Verdana;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 39px;
-    letter-spacing: -0.025em;
-    color: var(--quinary-color);
-}
-.regular_text {
-    font-family: Verdana;
+    font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 142.03%;
-    /* or 23px */
+    font-size: 28px;
+    line-height: 34px;
     letter-spacing: -0.025em;
-    color: var(--quinary-color);
+    color: #575757;
+}
+.description_text {
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 175.03%;
+    /* or 20px */
+    letter-spacing: -0.025em;
+    color: #575757;
+}
+
+/* Left text align */
+
+.leftTextAlign {
+    text-align: left;
+}
+.rightTextAlign {
+    text-align: right;
+}
+.centerTextAlign {
+    text-align: center;
 }
 
 /* General Alignment */
@@ -204,7 +209,7 @@
     font-family: Verdana;
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 139.03%;
     /* or 20px */
     text-align: center;
@@ -333,7 +338,7 @@
     font-weight: normal;
     text-align: var(--text-align);
     font-size: 15px;
-    line-height: 142.03%;
+    line-height: 175.03%;
     /* or 20px */
     letter-spacing: -0.025em;
     color: #575757;
@@ -354,7 +359,7 @@
     position: relative;
     flex-direction: row;
     align-items: center;
-    width: 95vw;
+    width: 100vw;
     height: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -384,4 +389,19 @@
     transform: translateY(-50%);
     padding-left: 100px;
     padding-right: 100px;
+}
+
+/* Centered Text Block (Mainly used for Landing Pages */
+
+.CenteredTextBlock {
+    display: block;
+    width: 750px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.CenteredTextBlock h1 {
+    padding-bottom: 50px;
 }

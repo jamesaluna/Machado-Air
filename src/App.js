@@ -8,7 +8,8 @@ import {
   BorderDescription,
   LargeImage,
   ImageDescription,
-  ComponentWrapper
+  ComponentWrapper,
+  CenteredTextBlock
 } from './Components';
 import './App.css';
 
@@ -35,6 +36,12 @@ function App() {
       </ComponentWrapper>
       <ComponentWrapper >
         <ImageDescription title='Doing it right first time is the most cost effective and hygienic solution' description='After your Estimator has fully inspected your HVAC system and discussed with you what you are looking to resolve, you will receive a detailed report and bid.' image={require('./Images/prop_img2.jpg')} direction='rtl' />
+      </ComponentWrapper>
+      <ComponentWrapper>
+        <CenteredTextBlock header="Once you're ready to sign the bid or issue a purchase order number, our delivery team go to work." content="First they find out about any special building access or regulations you may haveOnce you're ready to sign the bid or issue a purchase order number, our delivery team go to work. First they find out about any special building access or regulations you may have. Having been in business since 1983, we've worked in Government Top Security Building, Jails, Hospitals and Chinese Restaurants, so we're familiar with special building needs. "/>
+      </ComponentWrapper>
+      <ComponentWrapper background={require('./Blobs/blob2.svg')} background_position='top left'>
+        <ImageDescription title="Next our crews go to work." description="On longer projects you'll get daily statuses via email or phone detailing what areas we've completed and where we'll be working next." image={require('./Images/prop_img3.jpg')} direction='rtl' />
       </ComponentWrapper>
     </div>
   );

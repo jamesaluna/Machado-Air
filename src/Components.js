@@ -154,6 +154,18 @@ function ImageDescription(props) {
     }
 }
 
+// Centered Text Block (Mainly used for Landing Pages)
+// Requires 'header' and 'content' props
+
+function CenteredTextBlock(props) {
+    return (
+        <div className='CenteredTextBlock'>
+            <h1 className='header_text centerTextAlign'>{props.header}</h1>
+            <p className='description_text centerTextAlign'>{props.content}</p>
+        </div>
+    );
+}
+
 // Component Wrapper (Used for blobs) 
 
 function ComponentWrapper(props) {
@@ -208,4 +220,4 @@ function MainPage(props) {
         </div>
     );
 }
-export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper};
+export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper, CenteredTextBlock};
