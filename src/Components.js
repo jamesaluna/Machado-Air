@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+    Route,
+    NavLink,
+    HashRouter
+} from "react-router-dom";
 import ReactDom from 'react-dom';
 import './Components.css';
 
@@ -15,11 +20,22 @@ import { ReactComponent as PhoneIcon } from './Vectors/phone.svg';
 
 function BorderButton(props) {
     let inner_text = props.name;
-    return (
-        <div className='border-button'>
-            <span>{inner_text}</span>
-        </div>
-    );
+
+    if (props.linkPage) {
+        return (
+            <NavLink to={props.linkPage}>
+                <div className='border-button'>
+                    <span>{props.name}</span>
+                </div>
+            </NavLink>
+        );
+    } else {
+        return (
+            <div className='border-button'>
+                <span>{inner_text}</span>
+            </div>
+        );
+    }
 }
 function ContactButton(props) {
     function returnIcon() {
@@ -41,18 +57,39 @@ function ContactButton(props) {
 }
 
 function LargeHeader() {
+    function showNav() {
+        let toggled = false;
+        return function() {
+          const navigation = document.querySelector('.mobile_header_menu');
+          if (toggled) {
+            navigation.style.height = '0px';
+            navigation.style.opacity = '0'
+            toggled = false;
+          } else {
+            navigation.style.height = '100vh';
+            navigation.style.opacity = '1';
+            toggled = true;
+          }
+        }
+    }
+    const showNavTrigger = showNav();
     return (
         <div className='DesktopHeader'>
-            <div class='DesktopHeaderLogo'><Logo/></div>
-            <div class='DesktopHeaderLinks'>
-                <div>
-                    <div><span>Home</span><span></span></div>
-                    <div><span>About</span><span></span></div>
-                    <div><span>Contact</span><span></span></div>
-                    <div><span>FAQ</span><span></span></div>
-                    <div><span>Articles</span><span></span></div>
-                    <div><span>Pictures</span><span></span></div>
-                    <div><span>Videos</span><span></span></div>
+            <div className='DesktopHeaderLogo'><Logo/></div>
+            <div className='DesktopHeaderLinks'>
+                <div className='links'>
+                    <NavLink to='/'><div><span>Home</span><span></span></div></NavLink>
+                    <NavLink to='/about'><div><span>About</span><span></span></div></NavLink>
+                    <NavLink to='/contact'><div><span>Contact</span></div></NavLink>
+                    <NavLink to='/faqs'><div><span>FAQ</span></div></NavLink>
+                    <NavLink to='/about'><div><span>About</span></div></NavLink>
+                    <NavLink to='/pictures'><div><span>Pictures</span></div></NavLink>
+                    <NavLink to='/videos'><div><span>Videos</span></div></NavLink>
+                </div>
+                <div className='mobile_header_menu_icon'>
+                    <svg onClick={showNavTrigger} width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.25 0.125H11.625C12.1223 0.125 12.5992 0.322544 12.9508 0.674175C13.3025 1.02581 13.5 1.50272 13.5 2C13.5 2.49728 13.3025 2.97419 12.9508 3.32582C12.5992 3.67746 12.1223 3.875 11.625 3.875H2.25C1.75272 3.875 1.27581 3.67746 0.924175 3.32582C0.572544 2.97419 0.375 2.49728 0.375 2C0.375 1.50272 0.572544 1.02581 0.924175 0.674175C1.27581 0.322544 1.75272 0.125 2.25 0.125V0.125ZM15.375 15.125H24.75C25.2473 15.125 25.7242 15.3225 26.0758 15.6742C26.4275 16.0258 26.625 16.5027 26.625 17C26.625 17.4973 26.4275 17.9742 26.0758 18.3258C25.7242 18.6775 25.2473 18.875 24.75 18.875H15.375C14.8777 18.875 14.4008 18.6775 14.0492 18.3258C13.6975 17.9742 13.5 17.4973 13.5 17C13.5 16.5027 13.6975 16.0258 14.0492 15.6742C14.4008 15.3225 14.8777 15.125 15.375 15.125V15.125ZM2.25 7.625H24.75C25.2473 7.625 25.7242 7.82254 26.0758 8.17418C26.4275 8.52581 26.625 9.00272 26.625 9.5C26.625 9.99728 26.4275 10.4742 26.0758 10.8258C25.7242 11.1775 25.2473 11.375 24.75 11.375H2.25C1.75272 11.375 1.27581 11.1775 0.924175 10.8258C0.572544 10.4742 0.375 9.99728 0.375 9.5C0.375 9.00272 0.572544 8.52581 0.924175 8.17418C1.27581 7.82254 1.75272 7.625 2.25 7.625Z" fill="#F4F4F4"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -70,6 +107,17 @@ class Header extends React.Component {
         return (
             <div className='Main_Header' onResize={this.props.adjustHeader}>
                 <LargeHeader />
+                <div className='mobile_header_menu'>
+                    <div className='mobile_header_menu_links'>
+                        <NavLink to='/'><span>Home</span></NavLink>
+                        <NavLink to='/about'><span>About</span></NavLink>
+                        <NavLink to='/contact'><span>Contact</span></NavLink>
+                        <NavLink to='/faqs'><span>FAQ</span></NavLink>
+                        <NavLink to='/about'><span>About</span></NavLink>
+                        <NavLink to='/pictures'><span>Pictures</span></NavLink>
+                        <NavLink to='/videos'><span>Videos</span></NavLink>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -209,15 +257,15 @@ function Footer() {
                 </div>
                 <div className='footerLinks'>
                     <div>
-                        <a><span>Home</span></a>
-                        <a><span>Commercial</span></a>
-                        <a><span>Residential</span></a>
-                        <a><span>Dryer Vent</span></a>
-                        <a><span>About</span></a>
-                        <a><span>Articles</span></a>
-                        <a><span>Videos</span></a>
-                        <a><span>Pictures</span></a>
-                        <a><span>Contact</span></a>
+                        <NavLink to='/'><span>Home</span></NavLink>
+                        <NavLink to='/commerical'><span>Commercial</span></NavLink>
+                        <NavLink to='/residential'><span>Residential</span></NavLink>
+                        <NavLink to='/dryer'><span>Dryer Vent</span></NavLink>
+                        <NavLink to='/about'><span>About</span></NavLink>
+                        <NavLink to='/articles'><span>Articles</span></NavLink>
+                        <NavLink to='/videos'><span>Videos</span></NavLink>
+                        <NavLink to='/pictures'><span>Pictures</span></NavLink>
+                        <NavLink to='/contact'><span>Contact</span></NavLink>
                     </div>
                 </div>
             </div>
@@ -257,55 +305,61 @@ function ComponentWrapper(props) {
 
 // Image Grid Component (For landing pages)
 
-function ImageGrid(props) {
-    let images = props.images;
-    let imageAmount = images.length;
-
-    return (
-        <div className='ImageGrid'>
-            <div class='imageGridImageWrap'>
-                <div class='imageGridImage'>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-// Landing Page Component (For main pages)
-
-function MainPage(props) {
-    const page_type = props.type;
-    const title = props.title;
-
-    if (page_type == 'home') {
-        return (
-            <div className='Landing-Page' page_type={props.type}>
-                <div class='Landing-Page-Clouds'>
-                    <div className='landingPageContent'>
-                        <h1>{title}</h1>
-                        <div className='borderButtonWrapper'>
-                            <BorderButton name='Commercial'/>
-                            <BorderButton name='Residential'/>
-                            <BorderButton name='Dryer Vent'/>
+class ImageGrid extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    render() {
+        let images = this.props.images;
+        const listImages = images.map((image) => 
+            <div className='imageGridImage' show='image' onClick={e => e.target.show = 'description'}>
+                <div className='imageGridImageContent'>
+                    <div className='front cardSide'>
+                        <img src={require(`${image}`)} />
+                    </div>
+                    <div className='back cardSide'>
+                        <div className='imageGridImageDescription'>
+                            <h3>Image Title</h3>
+                            <p>A small description about the image</p>
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    } else {
-    return (
-        <div className='Landing-Page' page_type={props.type}>
-            <div className='landingPageContent'>
-                <h1>{title}</h1>
-                <div class='borderButtonWrapper'>
-                    <BorderButton name='Learn More' />
-                    <BorderButton name='Contact' />
-                </div>
+        );
+        return (
+            <div className='ImageGrid'>
+                {listImages}
             </div>
-        </div>
-    );
+        );
+    }
+}
+// Landing Page Component (For main pages)
+
+class MainPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+    render() {
+        let RenderedPage = () => {
+            if (this.props.type == 'home') {
+                return (
+                    <div className='Landing-Page' page_type={this.props.type}> <div class='Landing-Page-Clouds'><div className='landingPageContent'><h1>{this.props.title}</h1><div className='borderButtonWrapper' type='landing'><BorderButton name='Commercial' linkPage='/commercial' /><BorderButton name='Residential' linkPage='/residential' /><BorderButton name='Dryer Vent' linkPage='/dryer'/></div></div></div></div>
+                )
+            } else {
+                return (
+                    <div className='Landing-Page' page_type={this.props.type}><div className='landingPageContent'><h1>{this.props.title}</h1><div class='borderButtonWrapper'><BorderButton name='Learn More' /><BorderButton name='Contact' /></div></div></div>
+                )
+            }
+        }
+        return (
+            <div>
+                {RenderedPage()}
+            </div>
+        )
     }
 }
 
 
-export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper, CenteredTextBlock, IconDescription, Footer};
+export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper, CenteredTextBlock, IconDescription, Footer, ImageGrid};

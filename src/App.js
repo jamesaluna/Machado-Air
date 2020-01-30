@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 import logo from './logo.svg';
 import {
   BorderButton,
@@ -11,7 +16,8 @@ import {
   ComponentWrapper,
   CenteredTextBlock,
   IconDescription,
-  Footer
+  Footer,
+  ImageGrid
 } from './Components';
 import './App.css';
 
@@ -22,8 +28,8 @@ const SvgVector = ({ source }) => <div>{source}</div>;
 function HomePage() {
   return (
     <div id='Home_Page'>
-      <Header />
-      <MainPage type='home' title='Air Duct Cleaning all over Southern California since 1983' />
+      <MainPage type='home' title='Air Duct Cleaning in Southern California since 1983' />
+      <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
     </div>
   );
 }
@@ -31,7 +37,6 @@ function HomePage() {
 function CommercialPage() {
   return (
     <div>
-      <Header />
       <MainPage type='commercial' image="url('Backgrounds/PhYq704ffdA.jpg')" title='Commercial and Industrial HVAC Cleaning and Restoration'/>  
       <ComponentWrapper type='imageDesc'>
         <ImageDescription title='Few, if any, HVAC systems are the same, even within the same building' description='	Our highly experienced Account Managers and Estimators look at each part of your system to evaluate what is needed to bring the system back to hygienic and cost efficient operation. Boiler plate and square footage estimates can be very costly because specific issues are missed and can leave a building in a worse condition after cleaning' image={require('./Images/img2.jpg')} direction='ltr' />
@@ -54,7 +59,6 @@ function CommercialPage() {
 function ResidentialPage() {
   return (
     <div>
-      <Header />
       <MainPage type='residential' image="url('Backgrounds/residential_background.jpg')" title='Residential Heating and Air Conditioning'/>  
       <ComponentWrapper>
         <CenteredTextBlock type='top' header="With over 30 years servicing your area, Machado is your Heating, Ventilation and Air Conditioning Cleaning professionals." content="HVAC Cleaning can: Improve the hygienic conditions of your home. Often important for allergy suffers. Improve system efficiency, which saves you money and reduces your carbon footprint. Improve the longevity of your system. Less stress on components makes the system last longer."/>
@@ -89,7 +93,6 @@ function ResidentialPage() {
 function DryerPage() {
   return (
     <div>
-    <Header />
     <MainPage type='dryer' image="url('Backgrounds/dryer_background.jpg')" title='Residential Dryer Vent Cleaning' />  
     <ComponentWrapper>
       <CenteredTextBlock header="With over 30 years servicing your area, Machado is your Heating, Ventilation and Air Conditioning Cleaning professionals." content="HVAC Cleaning can: Improve the hygienic conditions of your home. Often important for allergy suffers. Improve system efficiency, which saves you money and reduces your carbon footprint. Improve the longevity of your system. Less stress on components makes the system last longer."/>
@@ -110,22 +113,27 @@ function DryerPage() {
   )
 }
 
-function App() {
-  const componentDisplay = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)',
-    gridTemplateRows: 'repeat(6, 1fr)',
-    width: '100vw',
-    height: '90vh',
-    marginTop: '200px',
-    padding: '50px'
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {page: 'home'};
   }
-  return (
-    <div>
-      <ResidentialPage />
-      <Footer />
-    </div>
-  );
+
+  render() {
+    return (
+      <HashRouter>
+        <Header/>
+        <>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/commercial' component={CommercialPage} />
+          <Route path='/residential' component={ResidentialPage} />
+          <Route path='/dryer' component={DryerPage} />
+        </>
+        <Footer />
+    </HashRouter>
+    );
+  }
 }
+
 
 export default App;
