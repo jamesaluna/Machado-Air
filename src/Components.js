@@ -202,6 +202,120 @@ function ImageDescription(props) {
     }
 }
 
+// Object description (or adding props such as carousels, images, etc (will likely replace 'imageDescription'))
+function ObjectDescription(props) {
+    const title = props.title;
+    const description = props.description;
+    const direction = props.direction;
+    let type = props.type ? props.type : null;
+
+    if (direction == 'ltr') {
+        return (
+            <div className='ImageDescription' type='ltr'>
+                <div position='left'>
+                    <div className='ImageDescriptionContent'>
+                        <BorderDescription title={title} content={description} direction='left'/>
+                    </div>
+                </div>
+                <div position='right'>
+                    <div className='ImageDescriptionContent'>
+                        {props.children}
+                    </div>
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div className='ImageDescription' type='rtl'>
+                <div position='left'>
+                    <div className='ImageDescriptionContent' direction='right'>
+                        {props.children}
+                    </div>
+                </div>
+                <div position='right'>
+                    <div className='ImageDescriptionContent'>
+                        <BorderDescription title={title} content={description} direction='right' />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+// Image carousel Component
+
+class Carousel extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            transform_index: 600,
+            image_info: [
+            ]
+        };
+    }
+
+    moveCarousel(evt) {
+        evt.preventDefault();
+
+        let navButtons = Array.from(document.querySelectorAll('.carouselNavButton'));
+        navButtons.forEach(button => button.children[0].style.background = '#DBDBDB');
+        
+        let carouselImages = document.querySelector('.carouselImages');
+
+        carouselImages.style.transform = `translateX(${evt.target.getAttribute('index')}px)`;
+        evt.target.style.background = '#ABABAB';
+    }
+
+    render() {
+        let images = this.props.images; 
+        let imgIndex, navIndex = 600;
+        const displayNavButtons = images.map(image => {
+            return (
+                <div className='carouselNavButton'><div onClick={e => this.moveCarousel(e)} index={navIndex -= 600}></div></div>
+            )
+        }
+        );
+        const displayImages = images.map(image => {
+            return (<div className='carouselImage' index={imgIndex -= 600}>
+                <img src={require(`${image}`)} />
+            </div>);
+        });
+        return (
+            <div className='Carousel'>
+                <div className='carouselImageWrapper'>
+                    <div className='carouselImages'>
+                        {displayImages}
+                    </div>
+                </div>
+                <div className='carouselNavigation'>
+                    <div className='carouselNavigationWrap'>
+                        {displayNavButtons}
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+// Cert Grid Component 
+
+class CertGrid extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    render() {
+        let certImgs = this.props.images;
+        const displayCerts = certImgs.map(img => 
+            <div className='cert'><div className='certContent'><img src={require(`${img}`)} /></div></div>
+        );
+        return (
+            <div className='CertGrid'>
+                {displayCerts}
+            </div>
+        )
+    }
+}
 // Centered Text Block (Mainly used for Landing Pages)
 // Requires 'header' and 'content' props
 
@@ -313,8 +427,8 @@ class ImageGrid extends React.Component {
     render() {
         let images = this.props.images;
         const listImages = images.map((image) => 
-            <div className='imageGridImage' show='image' onClick={e => e.target.show = 'description'}>
-                <div className='imageGridImageContent'>
+            <div className='imageGridImage' show='image'>
+                <div className='imageGridImageContent' onClick={this.showDescription}>
                     <div className='front cardSide'>
                         <img src={require(`${image}`)} />
                     </div>
@@ -345,7 +459,7 @@ class MainPage extends React.Component {
         let RenderedPage = () => {
             if (this.props.type == 'home') {
                 return (
-                    <div className='Landing-Page' page_type={this.props.type}> <div class='Landing-Page-Clouds'><div className='landingPageContent'><h1>{this.props.title}</h1><div className='borderButtonWrapper' type='landing'><BorderButton name='Commercial' linkPage='/commercial' /><BorderButton name='Residential' linkPage='/residential' /><BorderButton name='Dryer Vent' linkPage='/dryer'/></div></div></div></div>
+                    <div className='Landing-Page' page_type={this.props.type}> <div className='Landing-Page-Clouds'><div className='landingPageContent'><h1>{this.props.title}</h1><div className='borderButtonWrapper' type='landing'><BorderButton name='Commercial' linkPage='/commercial' /><BorderButton name='Residential' linkPage='/residential' /><BorderButton name='Dryer Vent' linkPage='/dryer'/></div></div></div></div>
                 )
             } else {
                 return (
@@ -361,7 +475,5 @@ class MainPage extends React.Component {
     }
 }
 
-// I messed up something
 
-
-export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper, CenteredTextBlock, IconDescription, Footer, ImageGrid};
+export {BorderButton, ContactButton, Header, MainPage, BorderDescription, LargeImage, ImageDescription, ComponentWrapper, CenteredTextBlock, IconDescription, Footer, ImageGrid, ObjectDescription, Carousel, CertGrid};

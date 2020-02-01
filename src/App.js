@@ -17,7 +17,10 @@ import {
   CenteredTextBlock,
   IconDescription,
   Footer,
-  ImageGrid
+  ImageGrid,
+  ObjectDescription,
+  Carousel,
+  CertGrid
 } from './Components';
 import './App.css';
 
@@ -29,6 +32,19 @@ function HomePage() {
   return (
     <div id='Home_Page'>
       <MainPage type='home' title='Air Duct Cleaning in Southern California since 1983' />
+      <ComponentWrapper type='imageDesc'>
+      <ObjectDescription title='Here is some Grabber Text' description='This contains the photos from the original estimate and photos the foreman took after cleaning your system. This shows you the visual improvement of your system and is great as part of your OSHA documentation.' direction='rtl'>
+        <Carousel images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
+      </ObjectDescription>
+      </ComponentWrapper>
+      <ComponentWrapper type='imageDesc'>
+      <ObjectDescription type='cert_grid' title='This is some other title' description='Here is another descripiton that Im typing to just see how this is all going to work and whatnot' direction='ltr'>
+        <CertGrid images={['./Icons/avetta.png', './Icons/cslb.png', './Icons/iaqa.png', './Icons/ihaci.png', './Icons/isnet.png', './Icons/nadca.png', './Icons/sam.png', './Icons/sbe.png']}/>
+      </ObjectDescription>
+      </ComponentWrapper>
+      <ComponentWrapper>
+        <CenteredTextBlock type='centerTextBlock' header="Once you're ready to sign the bid or issue a purchase order number, our delivery team go to work." content="First they find out about any special building access or regulations you may haveOnce you're ready to sign the bid or issue a purchase order number, our delivery team go to work. First they find out about any special building access or regulations you may have. Having been in business since 1983, we've worked in Government Top Security Building, Jails, Hospitals and Chinese Restaurants, so we're familiar with special building needs. "/>
+      </ComponentWrapper>
       <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
     </div>
   );
@@ -53,6 +69,7 @@ function CommercialPage() {
       <ComponentWrapper type='iconDesc'>
         <IconDescription header='On completion you will receive a "Before and After Report"' content='This contains the photos from the original estimate and photos the foreman took after cleaning your system. This shows you the visual improvement of your system and is great as part of your OSHA documentation.' svg={require('./Vectors/report_svg.svg')}/>
       </ComponentWrapper>
+      <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
     </div>
   );
 }
@@ -87,6 +104,7 @@ function ResidentialPage() {
       <ComponentWrapper type='imageDesc'>
         <ImageDescription title="Next our crews go to work." description="On longer projects you'll get daily statuses via email or phone detailing what areas we've completed and where we'll be working next." image={require('./Images/img3.jpg')} direction='rtl' />
       </ComponentWrapper>
+      <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
     </div>
   );
 }
@@ -112,6 +130,17 @@ function DryerPage() {
   </div>
   )
 }
+function Pictures() {
+  return (
+    <>
+      <div class='Pictures'>
+        <h1>Pictures</h1>
+        <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
+      </div>
+    </>
+  )
+}
+
 
 class App extends React.Component {
   constructor(props) {
@@ -128,6 +157,7 @@ class App extends React.Component {
           <Route path='/commercial' component={CommercialPage} />
           <Route path='/residential' component={ResidentialPage} />
           <Route path='/dryer' component={DryerPage} />
+          <Route path='/pictures' component={Pictures} />
         </>
         <Footer />
     </HashRouter>
