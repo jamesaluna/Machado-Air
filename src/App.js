@@ -20,7 +20,10 @@ import {
   ImageGrid,
   ObjectDescription,
   Carousel,
-  CertGrid
+  CertGrid,
+  ServiceArea,
+  ArticleComponent,
+  ContactGrid
 } from './Components';
 import './App.css';
 
@@ -31,21 +34,27 @@ const SvgVector = ({ source }) => <div>{source}</div>;
 function HomePage() {
   return (
     <div id='Home_Page'>
-      <MainPage type='home' title='Air Duct Cleaning in Southern California since 1983' />
+      <MainPage type='home' title='Air Duct Cleaning in Southern California Since 1983' />
       <ComponentWrapper type='imageDesc'>
       <ObjectDescription title='Here is some Grabber Text' description='This contains the photos from the original estimate and photos the foreman took after cleaning your system. This shows you the visual improvement of your system and is great as part of your OSHA documentation.' direction='rtl'>
         <Carousel images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
       </ObjectDescription>
       </ComponentWrapper>
-      <ComponentWrapper type='imageDesc'>
-      <ObjectDescription type='cert_grid' title='This is some other title' description='Here is another descripiton that Im typing to just see how this is all going to work and whatnot' direction='ltr'>
-        <CertGrid images={['./Icons/avetta.png', './Icons/cslb.png', './Icons/iaqa.png', './Icons/ihaci.png', './Icons/isnet.png', './Icons/nadca.png', './Icons/sam.png', './Icons/sbe.png']}/>
-      </ObjectDescription>
+      <ComponentWrapper type='cert_grid'>
+        <CertGrid images={['./Icons/avetta_text.png', './Icons/cslb.png', './Icons/iaqa.jpg', './Icons/ihaci.png', './Icons/isnet.png', './Icons/nadca.png', './Icons/sam.png', './Icons/sbe.png']}/>
       </ComponentWrapper>
       <ComponentWrapper>
         <CenteredTextBlock type='centerTextBlock' header="Once you're ready to sign the bid or issue a purchase order number, our delivery team go to work." content="First they find out about any special building access or regulations you may haveOnce you're ready to sign the bid or issue a purchase order number, our delivery team go to work. First they find out about any special building access or regulations you may have. Having been in business since 1983, we've worked in Government Top Security Building, Jails, Hospitals and Chinese Restaurants, so we're familiar with special building needs. "/>
       </ComponentWrapper>
-      <ImageGrid images={['./Images/img7.jpg', './Images/img8.jpg', './Images/img9.jpg', './Images/img10.jpg', './Images/img11.jpg', './Images/img12.jpg', './Images/img13.jpg', './Images/img14.jpg', './Images/img15.jpg']}/>
+      <ComponentWrapper type='articles'>
+        <ArticleComponent />
+      </ComponentWrapper>
+      <ComponentWrapper type='service_area'>
+        <ServiceArea />
+      </ComponentWrapper>
+      <ComponentWrapper>
+        <ContactGrid />
+      </ComponentWrapper>
     </div>
   );
 }

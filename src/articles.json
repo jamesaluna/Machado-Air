@@ -1,0 +1,97 @@
+ {
+    "popular": [
+            {
+                "name": "Article One",
+                "description": "Est ad maiestatis adolescens efficiendi. Eos error ocurreret philosophia te, ne eum autem ridens civibus, ut timeam diceret ancillae sit. Ad esse ferri complectitur ius, mel consulatu prodesset et. Novum liber ad duo. At sea dicta saperet deseruisse. An sed prima legere recteque.",
+                "src": "./Articles/Popular/Article_Template/index.html",
+                "preview": "./Articles/Popular/Article_Template/Images/Preview/cleaning_article_img.png",
+                "category": "popular"
+            },
+            {
+                "name": "Article Two",
+                "description": "Explicari patrioque no cum, vide tollit prompta eam no. Ei facer ludus perfecto sed. Omnis ipsum id sed, pri no audire patrioque. His ad nulla meliore, quod erat eam in. Mea in stet virtute.",
+                "src": "./Articles/Popular/Article_Two/index.html",
+                "preview": "./Articles/Popular/Article_Two/Images/Preview/condensation.png",
+                "category": "popular"
+            }
+
+    ],
+    "understanding_mold": [
+        {
+            "name": "Sample Mold Article",
+            "description": "Quodsi latine partiendo his in. Autem modus illum cu sed. Et sit illud exerci nemore, causae pertinacia sed eu, cu alterum appetere splendide mea quo.",
+            "src": "./Articles/Understanding_Mold/Mold_Article/index.html",
+            "preview": "./Articles/Understanding_Mold/Mold_Article/Images/Preview/moodshot1.jpg",
+            "category": "understanding_mold"
+        },
+        {
+            "name": "Mold: Yuck!",
+            "description": "Ut consul nusquam complectitur per. Ut vis unum omnis reformidans. Ex zril soleat euripidis qui, ridens necessitatibus at his. Ei eam malis aliquando.",
+            "src": "./Articles/Understanding_Mold/Another_Mold_Article/index.html",
+            "preview": "../Articles/Understanding_Mold/Another_Mold_Article/Images/Preview/window_fresh_air.jpg",
+            "category": "understanding_mold"
+        }
+    ],
+    "iaq": [
+        {
+            "name": "IAQ Article One",
+            "description": "Lorem ipsum dolor sit amet, in ludus partem recteque nec, his quas accumsan detracto ei, at reque mucius has. Velit interesset ut vel. His ea dicam vivendum. No oporteat voluptaria sit, pro ei etiam labore.",
+            "src": "./Articles/IAQ/IAQ_Article/index.html",
+            "preview": "./Articles/IAQ/IAQ_Article/Images/Preview/ingredients.jpg",
+            "category": "iaq"
+        },
+        {
+            "name": "IAQ Article Two",
+            "description": "Nec ne case omnes. Quodsi elaboraret omittantur mea ex, vidit nonumes neglegentur et mel. In eos aeterno constituto, per nobis partem eu, mea te nullam prompta. Vis essent impetus at.",
+            "src": "./Articles/IAQ/A_IAQ_Article/index.html",
+            "preview": "./Articles/IAQ/A_IAQ_Article/Images/Preview/houseart.png",
+            "category": "iaq"
+        }
+    ],
+    "tails_from_the_field": [
+        {
+            "name": "Tails from the Field",
+            "description": "Lorem ipsum dolor sit amet, utroque accusamus ex duo. An odio veritus nam, enim indoctum cu pro. Te quo iuvaret ceteros. Elitr regione forensibus vel an, in cum quas homero legendos. ",
+            "src": "./Articles/Tails_from_the_Field/Tails_Article_One/index.html",
+            "preview": "./Articles/Tails_from_the_Field/Tails_Article_One/Images/Preview/wts7.jpg",
+            "category": "tails_from_the_field"
+        },
+        {
+            "name": "TFF Article Two",
+            "description": "Accumsan ponderum ius at, mea ubique latine voluptatum eu, prima noster vidisse in vim. Eleifend postulant est et, nemore tractatos at vis, mei ei dicam debitis erroribus.",
+            "src": "./Articles/Tails_from_the_Field/Tails_Article_Two/index.html",
+            "preview": "./Articles/Tails_from_the_Field/Tails_Article_Two/Images/Preview/img8.jpg",
+            "category": "tails_from_the_field"
+        },
+        {
+            "name": "TFF Article Three",
+            "description": "Eum no natum audire appareat, eam ei brute volutpat praesent. Duo possim euripidis scriptorem ei, an delicata temporibus interpretaris vix.",
+            "src": "./Articles/Tails_from_the_Field/Tails_Article_Three/index.html",
+            "preview": "./Articles/Tails_from_the_Field/Tails_Article_Three/Images/Preview/dusty_surface.jpg",
+            "category": "tails_from_the_field"
+        },
+        {
+            "name": "Article Tails from Field",
+            "description": "No pro munere suavitate. Pri numquam feugait te, solum putent singulis eu vis, scaevola fabellas est ad. Utinam interesset sea id, pri ex zril indoctum, pro ei nisl alterum scribentur. Nonumes fuisset ius.",
+            "src": "./Articles/Tails_from_the_Field/Tails_Article_Four/index.html",
+            "preview": "./Articles/Tails_from_the_Field/Tails_Article_Four/Images/Preview/allergens.png",
+            "category": "tails_from_the_field"
+        }
+    ],
+    "other_topics": [
+        {
+            "name": "Other Topics: Article One",
+            "description": "Lorem ipsum dolor sit amet, quo eu agam inermis voluptaria, erat errem labores has ex, prima antiopam expetendis qui no. Sit cu omnium qualisque incorrupte.",
+            "src": "./Articles/Other_Topics/Otr_Article/index.html",
+            "preview": "./Articles/Other_Topics/Otr_Article/Images/Preview/cigarette_smoke.jpg",
+            "category": "other_topics"
+        },
+        {
+            "name": "Other Topics: Article Two",
+            "description": "No pro munere suavitate. Pri numquam feugait te, solum putent singulis eu vis, scaevola fabellas est ad. Utinam interesset sea id, pri ex zril indoctum, pro ei nisl alterum scribentur. Nonumes fuisset ius.",
+            "src": "./Articles/Other_Topics/F450_Article/index.html",
+            "preview": "./Articles/Other_Topics/F450_Article/Images/Preview/artplantprev.jpg",
+            "category": "other_topics"
+        }
+    ]
+}
